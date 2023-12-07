@@ -1,0 +1,42 @@
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+
+  body {
+    display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: space-around;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 600px) {
+    main {
+      flex-wrap: nowrap;
+    }
+
+    div {
+      flex-basis: 5%;
+    }
+  }
+</style>
+  <h1>
+    {{ .title }}
+</h1>
+<div>
+	<a href='/utc'>UTC</a>
+	<a href='/est'>EST</a>
+	<a href='/pst'>PST</a>
+	<a href='/ist'>IST</a>
+</div>
+<div>
+	<form action="" method="GET">
+		<label for="time">Time:</label>
+		<input type="time" name="time" value="{{.time}}" required />
+		<input type="submit" value="Submit" />
+	</form>
+	<pre>
+{{ .output }}
+	</pre>
+</div>
+</html>
