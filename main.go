@@ -107,6 +107,6 @@ func main() {
       "message": "pong",
     })
   })
-  r.Run(":8999")
-  //r.Run(":80")
+  //r.Run(":8999")
+  r.Run(":80")
 }

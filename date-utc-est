@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [[ $1 ]]; then
-  full_date=$(date +%F)
-  date -u '+%a %d %b %Y %T %Z' --date=@$(date "+%s" --date="$full_date $1")
-  TZ='America/New_York' date '+%a %d %b %Y %r %Z' --date=@$(date "+%s" --date="$full_date $1")
-  TZ='America/Los_Angeles' date '+%a %d %b %Y %r %Z' --date=@$(date "+%s" --date="$full_date $1")
-  TZ='Asia/Kolkata' date '+%a %d %b %Y %r %Z' --date=@$(date "+%s" --date="$full_date $1")
+  full_date=$(TZ='America/New_York' date +%F)
+  TZ='America/New_York' date -u '+%a %d %b %Y %T %Z' --date=@$(TZ='America/New_York' date "+%s" --date="$full_date $1")
+  TZ='America/New_York' date '+%a %d %b %Y %r %Z' --date=@$(TZ='America/New_York' date "+%s" --date="$full_date $1")
+  TZ='America/Los_Angeles' date '+%a %d %b %Y %r %Z' --date=@$(TZ='America/New_York' date "+%s" --date="$full_date $1")
+  TZ='Asia/Kolkata' date '+%a %d %b %Y %r %Z' --date=@$(TZ='America/New_York' date "+%s" --date="$full_date $1")
 else
   date --utc '+%a %d %b %Y %T %Z'
 fi
